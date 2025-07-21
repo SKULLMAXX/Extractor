@@ -4,7 +4,7 @@ import os
 import json
 from PIL import Image
 
-PDF_FILE = "somatosensory.pdf"
+PDF_FILE = "sample.pdf"
 OUTPUT_FOLDER = "output"
 IMAGE_FOLDER = os.path.join(OUTPUT_FOLDER, "images")
 JSON_FILE = os.path.join(OUTPUT_FOLDER, "content.json")
@@ -55,16 +55,16 @@ def build_json(text_data, image_data):
     with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(pages, f, indent=4)
 
-    print(f"✅ JSON created at: {JSON_FILE}")
+    print(f"JSON created at: {JSON_FILE}")
 
 def main():
-    print("📄 Extracting images...")
+    print("Extracting images...")
     image_data = extract_images(PDF_FILE)
 
-    print("✏️ Extracting text...")
+    print("Extracting text...")
     text_data = extract_text(PDF_FILE)
 
-    print("🧱 Creating structured JSON...")
+    print("Creating structured JSON...")
     build_json(text_data, image_data)
 
 if __name__ == "__main__":
